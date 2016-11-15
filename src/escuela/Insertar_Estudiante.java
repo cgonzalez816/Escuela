@@ -11,21 +11,22 @@ import java.util.logging.Logger;
 import java.util.*;
 import java.util.logging.*;
 import java.sql.*;
-
 /**
  *
  * @author treznor
  */
-public class Pantalla_Principal extends javax.swing.JFrame {
-   //Se Crea Conexión con la Base de Datos
-    ConexiónBD.conexión_postgres CP;
+public class Insertar_Estudiante extends javax.swing.JFrame {
+ConexiónBD.conexión_postgres CP;
     
-    public Pantalla_Principal() throws ClassNotFoundException, SQLException {
-    //Se ingresa los datos de la base de datos (Nombre BD, Usuario y contraseña)
+    public Insertar_Estudiante() {
+    try {
         this.CP = new conexión_postgres("Colegio", "postgres", "cesar");
+    } catch (ClassNotFoundException ex) {
+        Logger.getLogger(Insertar_Estudiante.class.getName()).log(Level.SEVERE, null, ex);
+    } catch (SQLException ex) {
+        Logger.getLogger(Insertar_Estudiante.class.getName()).log(Level.SEVERE, null, ex);
+    }
         initComponents();
-        // coloca la pantalla al centro
-         setLocationRelativeTo(null);
     }
 
     /**
@@ -37,10 +38,6 @@ public class Pantalla_Principal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
-        Salir = new javax.swing.JButton();
         tbPanelPrincipal = new javax.swing.JTabbedPane();
         pnDatos = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -60,26 +57,24 @@ public class Pantalla_Principal extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        txtCédula = new javax.swing.JTextField();
-        txtCarnet = new javax.swing.JTextField();
-        txtNombre = new javax.swing.JTextField();
+        txt_ID = new javax.swing.JTextField();
+        txtNOMBRE = new javax.swing.JTextField();
+        txtAPELLIDO1 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        jMenuBar2 = new javax.swing.JMenuBar();
-
-        jMenu1.setText("File");
-        jMenuBar1.add(jMenu1);
-
-        jMenu2.setText("Edit");
-        jMenuBar1.add(jMenu2);
+        jLabel7 = new javax.swing.JLabel();
+        txtAPELLIDO2 = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        txtESPECIALIDADID = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        txtCEDULA = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        txtTELEFONO = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        txtESPECIALIDAD = new javax.swing.JTextField();
+        txtEMAIL = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        Salir.setText("Salir");
-        Salir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SalirActionPerformed(evt);
-            }
-        });
 
         txtAreaDatos.setColumns(20);
         txtAreaDatos.setRows(5);
@@ -99,7 +94,7 @@ public class Pantalla_Principal extends javax.swing.JFrame {
             .addGroup(pnDatosLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 642, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 680, Short.MAX_VALUE)
                     .addGroup(pnDatosLayout.createSequentialGroup()
                         .addComponent(bnDatos)
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -147,7 +142,7 @@ public class Pantalla_Principal extends javax.swing.JFrame {
                         .addGroup(pnModificarLayout.createSequentialGroup()
                             .addGap(19, 19, 19)
                             .addComponent(bnModificar))))
-                .addContainerGap(511, Short.MAX_VALUE))
+                .addContainerGap(549, Short.MAX_VALUE))
         );
         pnModificarLayout.setVerticalGroup(
             pnModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -167,7 +162,7 @@ public class Pantalla_Principal extends javax.swing.JFrame {
 
         tbPanelPrincipal.addTab("MODIFICAR", pnModificar);
 
-        jLabel4.setText("-ID:");
+        jLabel4.setText("ESTUDIANTE-ID:");
 
         bnBorrar.setText("BORRAR");
         bnBorrar.addActionListener(new java.awt.event.ActionListener() {
@@ -187,7 +182,7 @@ public class Pantalla_Principal extends javax.swing.JFrame {
                 .addComponent(txtIdBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(bnBorrar)
-                .addContainerGap(480, Short.MAX_VALUE))
+                .addContainerGap(456, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -202,11 +197,11 @@ public class Pantalla_Principal extends javax.swing.JFrame {
 
         tbPanelPrincipal.addTab("BORRAR", jPanel1);
 
-        jLabel1.setText("-ID:");
+        jLabel1.setText("ESTUDIANTE-ID:");
 
-        jLabel2.setText("-Cédula:");
+        jLabel2.setText("PRIMER APELLIDO");
 
-        jLabel3.setText("-Nombre:");
+        jLabel3.setText("NOMBRE");
 
         jButton1.setText("INSERTAR");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -215,29 +210,56 @@ public class Pantalla_Principal extends javax.swing.JFrame {
             }
         });
 
+        jLabel7.setText("SEGUNDO APELLIDO");
+
+        jLabel8.setText("CEDULA");
+
+        jLabel9.setText("TELEFONO");
+
+        jLabel10.setText("E-MAIL");
+
+        jLabel11.setText("ESPECIALIDAD-ID");
+
+        jLabel12.setText("NOMBRE ESPECIALIDAD");
+
         javax.swing.GroupLayout pnInsertarLayout = new javax.swing.GroupLayout(pnInsertar);
         pnInsertar.setLayout(pnInsertarLayout);
         pnInsertarLayout.setHorizontalGroup(
             pnInsertarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnInsertarLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(pnInsertarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 446, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnInsertarLayout.createSequentialGroup()
-                        .addGroup(pnInsertarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pnInsertarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnInsertarLayout.createSequentialGroup()
+                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(353, 353, 353))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnInsertarLayout.createSequentialGroup()
+                        .addGroup(pnInsertarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(pnInsertarLayout.createSequentialGroup()
+                                .addComponent(jLabel12)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtESPECIALIDAD))
+                            .addGroup(pnInsertarLayout.createSequentialGroup()
+                                .addGap(0, 14, Short.MAX_VALUE)
                                 .addGroup(pnInsertarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel3))
-                                .addGap(6, 6, 6))
-                            .addGroup(pnInsertarLayout.createSequentialGroup()
-                                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                        .addGroup(pnInsertarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtCédula, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
-                            .addComponent(txtCarnet)
-                            .addComponent(txtNombre))))
-                .addGap(206, 206, 206))
+                                    .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(pnInsertarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtNOMBRE, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txt_ID, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtAPELLIDO1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtAPELLIDO2, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtCEDULA, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtTELEFONO, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtEMAIL, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtESPECIALIDADID, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(448, 448, 448))))
         );
         pnInsertarLayout.setVerticalGroup(
             pnInsertarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -245,79 +267,84 @@ public class Pantalla_Principal extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(pnInsertarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(txtCédula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(txt_ID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnInsertarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtCarnet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pnInsertarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNOMBRE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnInsertarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtAPELLIDO1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addGap(6, 6, 6)
+                .addGroup(pnInsertarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtAPELLIDO2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnInsertarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtCEDULA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnInsertarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtTELEFONO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9))
+                .addGap(8, 8, 8)
+                .addGroup(pnInsertarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtEMAIL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel10))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnInsertarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtESPECIALIDADID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel11))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnInsertarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtESPECIALIDAD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel12))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                 .addComponent(jButton1)
-                .addContainerGap(248, Short.MAX_VALUE))
+                .addGap(81, 81, 81))
         );
 
-        tbPanelPrincipal.addTab("INSERTAR", pnInsertar);
-
-        setJMenuBar(jMenuBar2);
+        tbPanelPrincipal.addTab("INSERTAR ESTUDIANTE", pnInsertar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(Salir, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(tbPanelPrincipal))
-                .addContainerGap())
+            .addGap(0, 725, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(tbPanelPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, 705, Short.MAX_VALUE)
+                    .addContainerGap()))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(tbPanelPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
-                .addComponent(Salir)
-                .addContainerGap())
+            .addGap(0, 425, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(tbPanelPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirActionPerformed
-        // TODO add your handling code here:
-        // sale del programa 
-        dispose();
-    }//GEN-LAST:event_SalirActionPerformed
-
     private void bnDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bnDatosActionPerformed
         // TODO add your handling code here:
+        
+        
         try {
-            ResultSet datos = this.CP.select("*", "\"Estudiante\".Estudiante:ID", "");
+             ResultSet datos = this.CP.select("*", "\"colegio\".estudiante", "");
             while (datos.next());
             {
-                this.txtAreaDatos.append("ID_Estudiante: " + datos.getString(1) + "Apellido1: " + datos.getString(2) + "Nombre: " + datos.getString(3) + "\n");
+                this.txtAreaDatos.append("id_estudiante: " + datos.getString(1) + "Apellido1: " + datos.getString(2) + "Nombre: " + datos.getString(3) + "\n");
             }
         } catch (Exception e) {
             System.err.println("Error: " + e.toString());
         }
     }//GEN-LAST:event_bnDatosActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        String datos="";
-        datos = "('" + this.txtCédula.getText()
-        + "' , '" + this.txtCarnet.getText()
-        + "' , '" + this.txtNombre.getText()
-        + "')";
-
-        this.CP.insertar("\"schUTN\".alumno", datos);
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void bnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bnModificarActionPerformed
         // TODO add your handling code here:
@@ -343,6 +370,23 @@ public class Pantalla_Principal extends javax.swing.JFrame {
         System.out.println(estado);
     }//GEN-LAST:event_bnBorrarActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        String datos="";
+        datos = "('" + this.txt_ID.getText()
+        + "' , '" + this.txtNOMBRE.getText()
+        + "' , '" + this.txtAPELLIDO1.getText()
+        + "' , '" + this.txtAPELLIDO2.getText()
+        + "' , '" + this.txtCEDULA.getText()
+        + "' , '" + this.txtTELEFONO.getText()
+        + "' , '" + this.txtEMAIL.getText()            
+        + "' , '" + this.txtESPECIALIDADID.getText()
+        + "' , '" + this.txtESPECIALIDAD.getText()        
+        + "')";
+
+    String insertar = this.CP.insertar ("\"colegio\".estudiante", datos);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -360,46 +404,41 @@ public class Pantalla_Principal extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Pantalla_Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Insertar_Estudiante.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Pantalla_Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Insertar_Estudiante.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Pantalla_Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Insertar_Estudiante.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Pantalla_Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Insertar_Estudiante.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                try {
-                    new Pantalla_Principal().setVisible(true);
-                } catch (ClassNotFoundException ex) {
-                    Logger.getLogger(Pantalla_Principal.class.getName()).log(Level.SEVERE, null, ex);
-                } catch (SQLException ex) {
-                    Logger.getLogger(Pantalla_Principal.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                new Insertar_Estudiante().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Salir;
     private javax.swing.JButton bnBorrar;
     private javax.swing.JButton bnDatos;
     private javax.swing.JButton bnModificar;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuBar jMenuBar2;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel pnDatos;
@@ -407,11 +446,17 @@ public class Pantalla_Principal extends javax.swing.JFrame {
     private javax.swing.JPanel pnModificar;
     private javax.swing.JTabbedPane tbPanelPrincipal;
     private javax.swing.JTextField txCedulaModificar;
+    private javax.swing.JTextField txtAPELLIDO1;
+    private javax.swing.JTextField txtAPELLIDO2;
     private javax.swing.JTextArea txtAreaDatos;
-    private javax.swing.JTextField txtCarnet;
-    private javax.swing.JTextField txtCédula;
+    private javax.swing.JTextField txtCEDULA;
+    private javax.swing.JTextField txtEMAIL;
+    private javax.swing.JTextField txtESPECIALIDAD;
+    private javax.swing.JTextField txtESPECIALIDADID;
     private javax.swing.JTextField txtIdBorrar;
-    private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextField txtNOMBRE;
     private javax.swing.JTextField txtNombreModificar;
+    private javax.swing.JTextField txtTELEFONO;
+    private javax.swing.JTextField txt_ID;
     // End of variables declaration//GEN-END:variables
 }
