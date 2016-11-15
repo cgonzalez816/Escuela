@@ -5,6 +5,8 @@
  */
 package escuela;
 
+import java.sql.SQLException;
+
 /**
  *
  * @author treznor
@@ -14,7 +16,7 @@ public class Escuela {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ClassNotFoundException, SQLException {
         // TODO code application logic here
      Pantalla_Principal P = new Pantalla_Principal(); 
      P.setVisible (true); 

@@ -1,7 +1,7 @@
 /*
  * To change this template, choose Tools | Templates * and open the template in the editor.
  */
-package ConexiónBD;
+package ConexionBD;
 
 import java.sql.*;
 import java.sql.Connection;
@@ -30,6 +30,10 @@ public class conexión_postgres {
         } catch (SQLException e) {
             System.err.println(e.toString());
         }
+    }
+
+    public conexión_postgres() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public ResultSet select(String pCampos, String pTabla, String pCondición) {
@@ -93,4 +97,5 @@ public class conexión_postgres {
         }
         return (retorno);
     }    
-}
+
+}   
