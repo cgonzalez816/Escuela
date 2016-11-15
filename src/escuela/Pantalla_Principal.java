@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package escuela;
+package escuela;//Parte grafica Estudiante
 
 import Estudiante.Estudiante;
 import java.sql.SQLException;
