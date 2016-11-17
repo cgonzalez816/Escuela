@@ -21,7 +21,7 @@ public class Pantalla_Principal extends javax.swing.JFrame {
 //.conexión_postgres CP;
     public Pantalla_Principal(){
     
-        initComponents();//Constructor Clase Pantalla_Principal
+        initComponents();//Constructor Clase Pantalla_Principal.
         setLocationRelativeTo(null);
     }
 
