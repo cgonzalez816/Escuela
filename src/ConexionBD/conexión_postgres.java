@@ -96,12 +96,6 @@ public class conexión_postgres {
             retorno = e.toString();
         }
         return (retorno);
-    } 
-
-    public Connection getConn() {
-        return conn;
-    }
-     
-     
+    }    
 
 }   
