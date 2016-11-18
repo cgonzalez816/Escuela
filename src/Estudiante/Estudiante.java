@@ -25,13 +25,12 @@ public class Estudiante extends javax.swing.JFrame {
      */
    
 //Se Crea Conexión con la Base de Datos
-    ConexionBD.conexión_postgres CP; 
+    ConexionBD.conexión_postgres CP = new conexión_postgres("Colegio", "postgres", "cesar");
     
     public Estudiante() throws ClassNotFoundException, SQLException {
         
         initComponents();
         setLocationRelativeTo(null);
-        CP = new conexión_postgres("Colegio", "postgres", "cesar");
     }
 
     /**
@@ -270,14 +269,11 @@ public class Estudiante extends javax.swing.JFrame {
 
     private void bnDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bnDatosActionPerformed
         // TODO add your handling code here:
-   
-        
         try {
-            ResultSet datos = this.CP.select("*", "estudiante", "");
+            ResultSet datos = this.CP.select("*", "\"public\".Estudiante", "");
             while (datos.next());
             {
-                System.out.println(datos.getString(6).length());
-                //this.txtAreaDatos.append("ID: " + datos.getString("id_estudiante") + "Cédula: " + datos.getString(2) + "Nombre: " + datos.getString(3) + "\n");
+                this.txtAreaDatos.append("ID: " + datos.getString(1) + "Cédula: " + datos.getString(2) + "Nombre: " + datos.getString(3) + "\n");
            
             }
           
