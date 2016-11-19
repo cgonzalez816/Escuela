@@ -98,4 +98,8 @@ public class conexión_postgres {
         return (retorno);
     }    
 
+    public ResultSet select(String select_from_estudiante, String string) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }   

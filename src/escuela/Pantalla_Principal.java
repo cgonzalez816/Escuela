@@ -109,16 +109,17 @@ public class Pantalla_Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jBtnSalirActionPerformed
 
     private void jBtnEstudianteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnEstudianteActionPerformed
+                   // TODO add your handling code here:
+            Estudiante E = null;
         try {
-            // TODO add your handling code here:
-            Estudiante E = new Estudiante();
-            E.setVisible (true);
+            E = new Estudiante();
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(Pantalla_Principal.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
             Logger.getLogger(Pantalla_Principal.class.getName()).log(Level.SEVERE, null, ex);
         }
-            
+            E.setVisible (true);
+                    
                 
     }//GEN-LAST:event_jBtnEstudianteActionPerformed
 

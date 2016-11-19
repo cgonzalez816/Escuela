@@ -6,12 +6,14 @@
 package Estudiante;
 
 import ConexionBD.conexión_postgres;
+import static java.lang.Integer.parseInt;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.*;
 import java.util.logging.*;
 import java.sql.*;
+import static javax.xml.bind.DatatypeConverter.parseString;
 
 /**
  *
@@ -25,7 +27,7 @@ public class Estudiante extends javax.swing.JFrame {
      */
    
 //Se Crea Conexión con la Base de Datos
-    ConexionBD.conexión_postgres CP = new conexión_postgres("Colegio", "postgres", "cesar");
+    ConexionBD.conexión_postgres CP = new conexión_postgres("postgres", "postgres", "cesar");
     
     public Estudiante() throws ClassNotFoundException, SQLException {
         
@@ -47,24 +49,32 @@ public class Estudiante extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         txtAreaDatos = new javax.swing.JTextArea();
         bnDatos = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        txtIdBorrar = new javax.swing.JTextField();
+        bnBorrar = new javax.swing.JButton();
         pnInsertar = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         txtCédula = new javax.swing.JTextField();
-        txtCarnet = new javax.swing.JTextField();
         txtNombre = new javax.swing.JTextField();
+        txtApellido = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        jTxtID = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jTxtTelefono = new javax.swing.JTextField();
+        jTxtMail = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
         pnModificar = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
+        jLblNombre = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        txtApellido1Modificar = new javax.swing.JTextField();
         txtNombreModificar = new javax.swing.JTextField();
-        txCedulaModificar = new javax.swing.JTextField();
         bnModificar = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        txtIdBorrar = new javax.swing.JTextField();
-        bnBorrar = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        jTxtFApellido2Modificar = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -86,7 +96,7 @@ public class Estudiante extends javax.swing.JFrame {
             .addGroup(pnDatosLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 366, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 377, Short.MAX_VALUE)
                     .addGroup(pnDatosLayout.createSequentialGroup()
                         .addComponent(bnDatos)
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -102,116 +112,6 @@ public class Estudiante extends javax.swing.JFrame {
         );
 
         tbPanelPrincipal.addTab("DATOS", pnDatos);
-
-        jLabel1.setText("-ID:");
-
-        jLabel2.setText("-Cédula:");
-
-        jLabel3.setText("-Nombre:");
-
-        jButton1.setText("INSERTAR");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout pnInsertarLayout = new javax.swing.GroupLayout(pnInsertar);
-        pnInsertar.setLayout(pnInsertarLayout);
-        pnInsertarLayout.setHorizontalGroup(
-            pnInsertarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnInsertarLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pnInsertarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnInsertarLayout.createSequentialGroup()
-                        .addGroup(pnInsertarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pnInsertarLayout.createSequentialGroup()
-                                .addGroup(pnInsertarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel3))
-                                .addGap(6, 6, 6))
-                            .addGroup(pnInsertarLayout.createSequentialGroup()
-                                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                        .addGroup(pnInsertarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtCédula, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
-                            .addComponent(txtCarnet)
-                            .addComponent(txtNombre))))
-                .addGap(206, 206, 206))
-        );
-        pnInsertarLayout.setVerticalGroup(
-            pnInsertarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnInsertarLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pnInsertarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(txtCédula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pnInsertarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtCarnet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pnInsertarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1)
-                .addContainerGap(123, Short.MAX_VALUE))
-        );
-
-        tbPanelPrincipal.addTab("INSERTAR", pnInsertar);
-
-        jLabel5.setText("-Cédula: ");
-
-        jLabel6.setText("-Nombre:");
-
-        bnModificar.setText("MODIFICAR");
-        bnModificar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bnModificarActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout pnModificarLayout = new javax.swing.GroupLayout(pnModificar);
-        pnModificar.setLayout(pnModificarLayout);
-        pnModificarLayout.setHorizontalGroup(
-            pnModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnModificarLayout.createSequentialGroup()
-                .addGroup(pnModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(pnModificarLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtNombreModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pnModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(pnModificarLayout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(txCedulaModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(pnModificarLayout.createSequentialGroup()
-                            .addGap(19, 19, 19)
-                            .addComponent(bnModificar))))
-                .addContainerGap(235, Short.MAX_VALUE))
-        );
-        pnModificarLayout.setVerticalGroup(
-            pnModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnModificarLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pnModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(txCedulaModificar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtNombreModificar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(bnModificar)
-                .addContainerGap(164, Short.MAX_VALUE))
-        );
-
-        tbPanelPrincipal.addTab("MODIFICAR", pnModificar);
 
         jLabel4.setText("-ID:");
 
@@ -233,7 +133,7 @@ public class Estudiante extends javax.swing.JFrame {
                 .addComponent(txtIdBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(bnBorrar)
-                .addContainerGap(204, Short.MAX_VALUE))
+                .addContainerGap(215, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -247,6 +147,143 @@ public class Estudiante extends javax.swing.JFrame {
         );
 
         tbPanelPrincipal.addTab("BORRAR", jPanel1);
+
+        jLabel1.setText("Cedula");
+
+        jLabel2.setText("Nombre");
+
+        jLabel3.setText("Apellido");
+
+        jButton1.setText("INSERTAR");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jLabel7.setText("ID");
+
+        jLabel8.setText("Telefono");
+
+        jLabel9.setText("E_Mail");
+
+        javax.swing.GroupLayout pnInsertarLayout = new javax.swing.GroupLayout(pnInsertar);
+        pnInsertar.setLayout(pnInsertarLayout);
+        pnInsertarLayout.setHorizontalGroup(
+            pnInsertarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnInsertarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnInsertarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnInsertarLayout.createSequentialGroup()
+                        .addGroup(pnInsertarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(pnInsertarLayout.createSequentialGroup()
+                                .addGroup(pnInsertarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel7)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel8)
+                                    .addComponent(jLabel9))
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(pnInsertarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTxtTelefono)
+                            .addComponent(txtCédula, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
+                            .addComponent(txtNombre)
+                            .addComponent(txtApellido)
+                            .addComponent(jTxtID)
+                            .addComponent(jTxtMail))))
+                .addGap(206, 206, 206))
+        );
+        pnInsertarLayout.setVerticalGroup(
+            pnInsertarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnInsertarLayout.createSequentialGroup()
+                .addGap(6, 6, 6)
+                .addGroup(pnInsertarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTxtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pnInsertarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtCédula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pnInsertarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pnInsertarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pnInsertarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTxtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pnInsertarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTxtMail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addContainerGap())
+        );
+
+        tbPanelPrincipal.addTab("INSERTAR", pnInsertar);
+
+        jLblNombre.setText("ID");
+
+        jLabel6.setText("Nombre");
+
+        bnModificar.setText("MODIFICAR");
+        bnModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bnModificarActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setText("Apellido");
+
+        javax.swing.GroupLayout pnModificarLayout = new javax.swing.GroupLayout(pnModificar);
+        pnModificar.setLayout(pnModificarLayout);
+        pnModificarLayout.setHorizontalGroup(
+            pnModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnModificarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(bnModificar)
+                    .addGroup(pnModificarLayout.createSequentialGroup()
+                        .addGroup(pnModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel5))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(pnModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTxtFApellido2Modificar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtApellido1Modificar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtNombreModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(246, Short.MAX_VALUE))
+        );
+        pnModificarLayout.setVerticalGroup(
+            pnModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnModificarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLblNombre)
+                    .addComponent(txtNombreModificar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(txtApellido1Modificar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(jTxtFApellido2Modificar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 111, Short.MAX_VALUE)
+                .addComponent(bnModificar)
+                .addGap(33, 33, 33))
+        );
+
+        tbPanelPrincipal.addTab("MODIFICAR", pnModificar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -267,56 +304,113 @@ public class Estudiante extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void bnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bnModificarActionPerformed
+        try {
+            // TODO add your handling code here:
+            ConexionBD.conexión_postgres CP = new conexión_postgres("postgres", "postgres", "cesar");
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Estudiante.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(Estudiante.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        String estado;
+        String datos;
+
+        datos = "set \"nombre\" = '" 
+                + this.txtApellido1Modificar.getText() +
+                
+                "' where \"estudiante_id\" = '"
+        + parseString(this.txtNombreModificar.getText()) + "'";
+
+        estado = this.CP.Modificar("\"public\".estudiante", datos);
+        System.out.println(estado);
+
+    }//GEN-LAST:event_bnModificarActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+   //Insertar
+        
+                try {
+            // TODO add your handling code here:
+            ConexionBD.conexión_postgres CP = new conexión_postgres("postgres", "postgres", "cesar");
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Estudiante.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(Estudiante.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        String datos="";
+
+        datos = "('" + this.jTxtID.getText()
+        + "' , '"    + this.txtCédula.getText()
+        + "' , '"    + this.txtNombre.getText()        
+        + "' , '"    + this.txtApellido1Modificar.getText()
+        + "' , '"    + this.jTxtTelefono.getText()
+        + "' , '"    + this.jTxtMail.getText()        
+        + "')";
+
+        this.CP.insertar("\"public\".estudiante", datos);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    
+    // Ya borra
+    private void bnBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bnBorrarActionPerformed
+        // TODO add your handling code here:
+       
+        String estado;
+        String datos;
+
+        datos = " where \"estudiante_id\" = '" + this.txtIdBorrar.getText() + "'";
+
+        estado = this.CP.Borrar("\"public\".estudiante", datos);
+
+        System.out.println(estado);
+    }//GEN-LAST:event_bnBorrarActionPerformed
+
+    
+    
+    
     private void bnDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bnDatosActionPerformed
         // TODO add your handling code here:
         try {
-            ResultSet datos = this.CP.select("*", "\"public\".Estudiante", "");
+
+            ResultSet datos = this.CP.select("*", "estudiante", "");
+
+            if (datos!= null){
+                System.out.println("Exito");
+            }else{
+                System.out.println("OUCH!");
+            }
+
             while (datos.next());
             {
-                this.txtAreaDatos.append("ID: " + datos.getString(1) + "Cédula: " + datos.getString(2) + "Nombre: " + datos.getString(3) + "\n");
-           
+                this.txtAreaDatos.append(
+                    "id_Estudiante: " + datos.getString(1) +
+                    "Nombre:"         + datos.getString(2) +
+                    "Apellido1:"      + datos.getString(3) +
+                    "Apellido2:"      + datos.getString(4) +
+                    "Telefono:"       + datos.getString(5) +
+                    "e_mail:"         + datos.getString(2) +
+                    "\n");
+
             }
-          
+
         } catch (Exception e) {
             System.err.println("Error: " + e.toString());
         }
     }//GEN-LAST:event_bnDatosActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        String datos="";
-        datos = "('" + this.txtCédula.getText()
-        + "' , '" + this.txtCarnet.getText()
-        + "' , '" + this.txtNombre.getText()
-        + "')";
-
-        this.CP.insertar("\"schUTN\".alumno", datos);
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void bnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bnModificarActionPerformed
-        // TODO add your handling code here:
-        String estado;
-        String datos;
-
-        datos = "set \"nombre\" = '" + this.txtNombreModificar.getText() + "' where \"cédula\" = '"
-        + this.txCedulaModificar.getText() + "'";
-
-        estado = this.CP.Modificar("\"schUTN\".alumno", datos);
-        System.out.println(estado);
-    }//GEN-LAST:event_bnModificarActionPerformed
-
-    private void bnBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bnBorrarActionPerformed
-        // TODO add your handling code here:
-        String estado;
-        String datos;
-
-        datos = " where \"id\" = '" + this.txtIdBorrar.getText() + "'";
-
-        estado = this.CP.Borrar("\"schUTN\".alumno", datos);
-
-        System.out.println(estado);
-    }//GEN-LAST:event_bnBorrarActionPerformed
-
+    
+    
+    
+    
+    
+    
+    
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -363,15 +457,23 @@ public class Estudiante extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLblNombre;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField jTxtFApellido2Modificar;
+    private javax.swing.JTextField jTxtID;
+    private javax.swing.JTextField jTxtMail;
+    private javax.swing.JTextField jTxtTelefono;
     private javax.swing.JPanel pnDatos;
     private javax.swing.JPanel pnInsertar;
     private javax.swing.JPanel pnModificar;
     private javax.swing.JTabbedPane tbPanelPrincipal;
-    private javax.swing.JTextField txCedulaModificar;
+    private javax.swing.JTextField txtApellido;
+    private javax.swing.JTextField txtApellido1Modificar;
     private javax.swing.JTextArea txtAreaDatos;
-    private javax.swing.JTextField txtCarnet;
     private javax.swing.JTextField txtCédula;
     private javax.swing.JTextField txtIdBorrar;
     private javax.swing.JTextField txtNombre;
