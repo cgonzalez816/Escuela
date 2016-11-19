@@ -28,7 +28,7 @@ public class NewJFrameProfesores extends javax.swing.JFrame {
     ConexionBD.conexión_postgres CP = new conexión_postgres("postgres", "postgres", "cesar");
     
     public NewJFrameProfesores() throws ClassNotFoundException, SQLException{
-        initComponents();
+        initComponents();//Constructor Clase NewJFrameProfesores 
         setLocationRelativeTo(null);
     }
 
