@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package Estudiante;
+// Importaciones 
 
 import ConexionBD.conexión_postgres;
 import static java.lang.Integer.parseInt;
@@ -17,20 +18,18 @@ import static javax.xml.bind.DatatypeConverter.parseString;
 
 /**
  *
- * @author treznor
+ * @author Cesar Gozalez y Pablo Marin
  */
 public class Estudiante extends javax.swing.JFrame {
 
-    
     /**
      * Creates new form Estudiante
      */
-   
 //Se Crea Conexión con la Base de Datos
     ConexionBD.conexión_postgres CP = new conexión_postgres("postgres", "postgres", "cesar");
-    
+
     public Estudiante() throws ClassNotFoundException, SQLException {
-        
+
         initComponents();
         setLocationRelativeTo(null);
     }
@@ -71,7 +70,7 @@ public class Estudiante extends javax.swing.JFrame {
         jLblNombre = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         txtApellido1Modificar = new javax.swing.JTextField();
-        txtNombreModificar = new javax.swing.JTextField();
+        txtIDModificar = new javax.swing.JTextField();
         bnModificar = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jTxtFApellido2Modificar = new javax.swing.JTextField();
@@ -260,7 +259,7 @@ public class Estudiante extends javax.swing.JFrame {
                         .addGroup(pnModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTxtFApellido2Modificar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtApellido1Modificar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtNombreModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(txtIDModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(246, Short.MAX_VALUE))
         );
         pnModificarLayout.setVerticalGroup(
@@ -269,7 +268,7 @@ public class Estudiante extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(pnModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLblNombre)
-                    .addComponent(txtNombreModificar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtIDModificar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
@@ -305,24 +304,16 @@ public class Estudiante extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bnModificarActionPerformed
-        try {
-            // TODO add your handling code here:
-            ConexionBD.conexión_postgres CP = new conexión_postgres("postgres", "postgres", "cesar");
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(Estudiante.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(Estudiante.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        
+
+        // Modificar la informacion de la base de datos      
+        // Almacena la info 
         String estado;
         String datos;
 
-        datos = "set \"nombre\" = '" 
-                + this.txtApellido1Modificar.getText() +
-                
-                "' where \"estudiante_id\" = '"
-        + parseString(this.txtNombreModificar.getText()) + "'";
+        datos = "set \"nombre\" = '"
+                + this.txtApellido1Modificar.getText()
+                + "' where \"id_estudiante\" = '"
+                + parseString(this.txtIDModificar.getText()) + "'";
 
         estado = this.CP.Modificar("\"public\".estudiante", datos);
         System.out.println(estado);
@@ -330,87 +321,58 @@ public class Estudiante extends javax.swing.JFrame {
     }//GEN-LAST:event_bnModificarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-   //Insertar
-        
-                try {
-            // TODO add your handling code here:
-            ConexionBD.conexión_postgres CP = new conexión_postgres("postgres", "postgres", "cesar");
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(Estudiante.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(Estudiante.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        String datos="";
+   //Inserta la info a la base de datos 
+        // String que almacena los datos 
+        String datos = "";
 
         datos = "('" + this.jTxtID.getText()
-        + "' , '"    + this.txtCédula.getText()
-        + "' , '"    + this.txtNombre.getText()        
-        + "' , '"    + this.txtApellido1Modificar.getText()
-        + "' , '"    + this.jTxtTelefono.getText()
-        + "' , '"    + this.jTxtMail.getText()        
-        + "')";
+                + "' , '" + this.txtCédula.getText()
+                + "' , '" + this.txtNombre.getText()
+                + "' , '" + this.txtApellido1Modificar.getText()
+                + "' , '" + this.jTxtTelefono.getText()
+                + "' , '" + this.jTxtMail.getText()
+                + "')";
 
         this.CP.insertar("\"public\".estudiante", datos);
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    
-    // Ya borra
+
     private void bnBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bnBorrarActionPerformed
         // TODO add your handling code here:
-       
+        // Borra la info de la base de datos 
+        // guarda el ID 
         String estado;
         String datos;
 
-        datos = " where \"estudiante_id\" = '" + this.txtIdBorrar.getText() + "'";
+        datos = " where \"id_estudiante\" = '" + this.txtIdBorrar.getText() + "'";
 
         estado = this.CP.Borrar("\"public\".estudiante", datos);
 
         System.out.println(estado);
     }//GEN-LAST:event_bnBorrarActionPerformed
 
-    
-    
-    
+
     private void bnDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bnDatosActionPerformed
         // TODO add your handling code here:
+
+       //muestra la info de la base de datos 
         try {
-
-            ResultSet datos = this.CP.select("*", "estudiante", "");
-
-            if (datos!= null){
-                System.out.println("Exito");
-            }else{
-                System.out.println("OUCH!");
-            }
-
+            ResultSet datos = this.CP.select("*", "\"public\".estudiante", "");
             while (datos.next());
             {
-                this.txtAreaDatos.append(
-                    "id_Estudiante: " + datos.getString(1) +
-                    "Nombre:"         + datos.getString(2) +
-                    "Apellido1:"      + datos.getString(3) +
-                    "Apellido2:"      + datos.getString(4) +
-                    "Telefono:"       + datos.getString(5) +
-                    "e_mail:"         + datos.getString(2) +
-                    "\n");
-
+                this.txtAreaDatos.append("ID: " + datos.getString(1)
+                        + "Cédula: " + datos.getString(2)
+                        + "Nombre: " + datos.getString(3)
+                        + "Apellido: " + datos.getString(4)
+                        + "Telefono: " + datos.getString(5)
+                        + "E_Mail: " + datos.getString(6)
+                        + "\n");
             }
-
         } catch (Exception e) {
             System.err.println("Error: " + e.toString());
         }
     }//GEN-LAST:event_bnDatosActionPerformed
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
     /**
      * @param args the command line arguments
      */
@@ -441,7 +403,7 @@ public class Estudiante extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-               
+
             }
         });
     }
@@ -475,8 +437,8 @@ public class Estudiante extends javax.swing.JFrame {
     private javax.swing.JTextField txtApellido1Modificar;
     private javax.swing.JTextArea txtAreaDatos;
     private javax.swing.JTextField txtCédula;
+    private javax.swing.JTextField txtIDModificar;
     private javax.swing.JTextField txtIdBorrar;
     private javax.swing.JTextField txtNombre;
-    private javax.swing.JTextField txtNombreModificar;
     // End of variables declaration//GEN-END:variables
 }
