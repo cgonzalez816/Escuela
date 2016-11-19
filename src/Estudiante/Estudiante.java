@@ -30,7 +30,7 @@ public class Estudiante extends javax.swing.JFrame {
 
     public Estudiante() throws ClassNotFoundException, SQLException {
 
-        initComponents();
+        initComponents();//Constructor del form Estudiante
         setLocationRelativeTo(null);
     }
 
