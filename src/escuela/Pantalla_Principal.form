@@ -61,6 +61,7 @@
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="jBtnEstudiante" max="32767" attributes="0"/>
                           <Component id="jBtnEspecialidad" max="32767" attributes="0"/>
+                          <Component id="jBtnProfesores" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="0" pref="289" max="32767" attributes="0"/>
                   </Group>
@@ -74,9 +75,11 @@
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
               <Component id="jBtnEstudiante" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+              <Component id="jBtnProfesores" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Component id="jBtnEspecialidad" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="160" max="32767" attributes="0"/>
+              <EmptySpace pref="142" max="32767" attributes="0"/>
               <Component id="jBtnSalir" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -106,6 +109,14 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBtnEspecialidadActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="jBtnProfesores">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Profesores"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBtnProfesoresActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

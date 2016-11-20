@@ -7,6 +7,7 @@ package escuela;//Parte grafica Estudiante
 
 import Especialidad.NewJFrameEspecialidad;
 import Estudiante.Estudiante;
+import Profesores.NewJFrameProfesores;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -36,6 +37,7 @@ public class Pantalla_Principal extends javax.swing.JFrame {
         jBtnSalir = new javax.swing.JButton();
         jBtnEstudiante = new javax.swing.JButton();
         jBtnEspecialidad = new javax.swing.JButton();
+        jBtnProfesores = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -61,6 +63,13 @@ public class Pantalla_Principal extends javax.swing.JFrame {
         jBtnEspecialidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBtnEspecialidadActionPerformed(evt);
+            }
+        });
+
+        jBtnProfesores.setText("Profesores");
+        jBtnProfesores.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnProfesoresActionPerformed(evt);
             }
         });
 
@@ -94,7 +103,8 @@ public class Pantalla_Principal extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jBtnEstudiante, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jBtnEspecialidad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jBtnEspecialidad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jBtnProfesores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(0, 289, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -103,9 +113,11 @@ public class Pantalla_Principal extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addComponent(jBtnEstudiante)
-                .addGap(18, 18, 18)
+                .addGap(7, 7, 7)
+                .addComponent(jBtnProfesores)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jBtnEspecialidad)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 160, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 142, Short.MAX_VALUE)
                 .addComponent(jBtnSalir)
                 .addContainerGap())
         );
@@ -151,6 +163,21 @@ public class Pantalla_Principal extends javax.swing.JFrame {
             E.setVisible (true);
     }//GEN-LAST:event_jBtnEspecialidadActionPerformed
 
+    private void jBtnProfesoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnProfesoresActionPerformed
+        // TODO add your handling code here:
+            NewJFrameProfesores P = null;
+        try {
+            P = new NewJFrameProfesores();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Pantalla_Principal.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(Pantalla_Principal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            P.setVisible (true);        
+        
+        
+    }//GEN-LAST:event_jBtnProfesoresActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -189,6 +216,7 @@ public class Pantalla_Principal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBtnEspecialidad;
     private javax.swing.JButton jBtnEstudiante;
+    private javax.swing.JButton jBtnProfesores;
     private javax.swing.JButton jBtnSalir;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
