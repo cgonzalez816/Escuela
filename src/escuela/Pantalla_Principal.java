@@ -7,6 +7,10 @@ package escuela;//Parte grafica Estudiante
 
 import Especialidad.NewJFrameEspecialidad;
 import Estudiante.Estudiante;
+import Horario.NewJFrameHorario;
+import Materias.NewJFrameMaterias;
+import Matricula.NewJFrameMatricula;
+import Precios.NewJFramePrecios;
 import Profesores.NewJFrameProfesores;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -17,10 +21,10 @@ import java.util.logging.Logger;
  * @author treznor
  */
 public class Pantalla_Principal extends javax.swing.JFrame {
-    
+
 //.conexión_postgres CP;
-    public Pantalla_Principal(){
-    
+    public Pantalla_Principal() {
+
         initComponents();
         setLocationRelativeTo(null);
     }
@@ -38,10 +42,13 @@ public class Pantalla_Principal extends javax.swing.JFrame {
         jBtnEstudiante = new javax.swing.JButton();
         jBtnEspecialidad = new javax.swing.JButton();
         jBtnProfesores = new javax.swing.JButton();
+        jBtnMaterias = new javax.swing.JButton();
+        jBtnPrecios = new javax.swing.JButton();
+        jBtnHorarios = new javax.swing.JButton();
+        jBtnMatricula = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -73,6 +80,34 @@ public class Pantalla_Principal extends javax.swing.JFrame {
             }
         });
 
+        jBtnMaterias.setText("Materias");
+        jBtnMaterias.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnMateriasActionPerformed(evt);
+            }
+        });
+
+        jBtnPrecios.setText("Precios");
+        jBtnPrecios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnPreciosActionPerformed(evt);
+            }
+        });
+
+        jBtnHorarios.setText("Horarios");
+        jBtnHorarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnHorariosActionPerformed(evt);
+            }
+        });
+
+        jBtnMatricula.setText("Matricula");
+        jBtnMatricula.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnMatriculaActionPerformed(evt);
+            }
+        });
+
         jMenu1.setText("Menu");
 
         jMenuItem1.setText("Salir");
@@ -84,9 +119,6 @@ public class Pantalla_Principal extends javax.swing.JFrame {
         jMenu1.add(jMenuItem1);
 
         jMenuBar1.add(jMenu1);
-
-        jMenu2.setText("Edit");
-        jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
 
@@ -104,7 +136,11 @@ public class Pantalla_Principal extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jBtnEstudiante, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jBtnEspecialidad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jBtnProfesores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jBtnProfesores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jBtnMaterias, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jBtnPrecios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jBtnHorarios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jBtnMatricula, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(0, 289, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -117,7 +153,15 @@ public class Pantalla_Principal extends javax.swing.JFrame {
                 .addComponent(jBtnProfesores)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jBtnEspecialidad)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 142, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jBtnMaterias)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jBtnPrecios)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jBtnHorarios)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jBtnMatricula)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
                 .addComponent(jBtnSalir)
                 .addContainerGap())
         );
@@ -136,8 +180,8 @@ public class Pantalla_Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jBtnSalirActionPerformed
 
     private void jBtnEstudianteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnEstudianteActionPerformed
-                   // TODO add your handling code here:
-            Estudiante E = null;
+        // TODO add your handling code here:
+        Estudiante E = null;
         try {
             E = new Estudiante();
         } catch (ClassNotFoundException ex) {
@@ -145,14 +189,14 @@ public class Pantalla_Principal extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(Pantalla_Principal.class.getName()).log(Level.SEVERE, null, ex);
         }
-            E.setVisible (true);
-                    
-                
+        E.setVisible(true);
+
+
     }//GEN-LAST:event_jBtnEstudianteActionPerformed
 
     private void jBtnEspecialidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnEspecialidadActionPerformed
         // TODO add your handling code here:
-            NewJFrameEspecialidad E = null;
+        NewJFrameEspecialidad E = null;
         try {
             E = new NewJFrameEspecialidad();
         } catch (ClassNotFoundException ex) {
@@ -160,12 +204,12 @@ public class Pantalla_Principal extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(Pantalla_Principal.class.getName()).log(Level.SEVERE, null, ex);
         }
-            E.setVisible (true);
+        E.setVisible(true);
     }//GEN-LAST:event_jBtnEspecialidadActionPerformed
 
     private void jBtnProfesoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnProfesoresActionPerformed
         // TODO add your handling code here:
-            NewJFrameProfesores P = null;
+        NewJFrameProfesores P = null;
         try {
             P = new NewJFrameProfesores();
         } catch (ClassNotFoundException ex) {
@@ -173,10 +217,73 @@ public class Pantalla_Principal extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(Pantalla_Principal.class.getName()).log(Level.SEVERE, null, ex);
         }
-            P.setVisible (true);        
-        
-        
+        P.setVisible(true);
+
+
     }//GEN-LAST:event_jBtnProfesoresActionPerformed
+
+    private void jBtnMateriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnMateriasActionPerformed
+        // TODO add your handling code here:
+
+        NewJFrameMaterias M = null;
+        try {
+            M = new NewJFrameMaterias();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Pantalla_Principal.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(Pantalla_Principal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        M.setVisible(true);
+
+
+    }//GEN-LAST:event_jBtnMateriasActionPerformed
+
+    private void jBtnPreciosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnPreciosActionPerformed
+        // TODO add your handling code here:
+
+        NewJFramePrecios Pr = null;
+        try {
+            Pr = new NewJFramePrecios();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Pantalla_Principal.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(Pantalla_Principal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Pr.setVisible(true);
+
+
+    }//GEN-LAST:event_jBtnPreciosActionPerformed
+
+    private void jBtnHorariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnHorariosActionPerformed
+        // TODO add your handling code here:
+
+        NewJFrameHorario H = null;
+        try {
+            H = new NewJFrameHorario();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Pantalla_Principal.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(Pantalla_Principal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        H.setVisible(true);
+
+
+    }//GEN-LAST:event_jBtnHorariosActionPerformed
+
+    private void jBtnMatriculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnMatriculaActionPerformed
+        // TODO add your handling code here:
+        
+        NewJFrameMatricula M = null;
+        try {
+            M = new NewJFrameMatricula();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Pantalla_Principal.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(Pantalla_Principal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        M.setVisible(true);
+
+    }//GEN-LAST:event_jBtnMatriculaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -208,7 +315,7 @@ public class Pantalla_Principal extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                
+
             }
         });
     }
@@ -216,10 +323,13 @@ public class Pantalla_Principal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBtnEspecialidad;
     private javax.swing.JButton jBtnEstudiante;
+    private javax.swing.JButton jBtnHorarios;
+    private javax.swing.JButton jBtnMaterias;
+    private javax.swing.JButton jBtnMatricula;
+    private javax.swing.JButton jBtnPrecios;
     private javax.swing.JButton jBtnProfesores;
     private javax.swing.JButton jBtnSalir;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     // End of variables declaration//GEN-END:variables

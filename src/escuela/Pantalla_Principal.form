@@ -19,11 +19,6 @@
             </MenuItem>
           </SubComponents>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenu2">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Edit"/>
-          </Properties>
-        </Menu>
       </SubComponents>
     </Menu>
   </NonVisualComponents>
@@ -62,6 +57,10 @@
                           <Component id="jBtnEstudiante" max="32767" attributes="0"/>
                           <Component id="jBtnEspecialidad" max="32767" attributes="0"/>
                           <Component id="jBtnProfesores" max="32767" attributes="0"/>
+                          <Component id="jBtnMaterias" max="32767" attributes="0"/>
+                          <Component id="jBtnPrecios" max="32767" attributes="0"/>
+                          <Component id="jBtnHorarios" max="32767" attributes="0"/>
+                          <Component id="jBtnMatricula" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="0" pref="289" max="32767" attributes="0"/>
                   </Group>
@@ -79,7 +78,15 @@
               <Component id="jBtnProfesores" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jBtnEspecialidad" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="142" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jBtnMaterias" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jBtnPrecios" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jBtnHorarios" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="jBtnMatricula" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="21" max="32767" attributes="0"/>
               <Component id="jBtnSalir" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -117,6 +124,38 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBtnProfesoresActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="jBtnMaterias">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Materias"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBtnMateriasActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="jBtnPrecios">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Precios"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBtnPreciosActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="jBtnHorarios">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Horarios"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBtnHorariosActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="jBtnMatricula">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Matricula"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBtnMatriculaActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

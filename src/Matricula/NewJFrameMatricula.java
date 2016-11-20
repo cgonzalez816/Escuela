@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Profesores;
+package Matricula;
 
 import ConexionBD.conexión_postgres;
 import static java.lang.Integer.parseInt;
@@ -19,15 +19,15 @@ import static javax.xml.bind.DatatypeConverter.parseString;
  *
  * @author treznor
  */
-public class NewJFrameProfesores extends javax.swing.JFrame {
+public class NewJFrameMatricula extends javax.swing.JFrame {
 
     /**
-     * Creates new form NewJFrameProfesores
+     * Creates new form NewJFrameMatricula
      */
     
     ConexionBD.conexión_postgres CP = new conexión_postgres("postgres", "postgres", "cesar");
     
-    public NewJFrameProfesores() throws ClassNotFoundException, SQLException{
+    public NewJFrameMatricula() throws ClassNotFoundException, SQLException {
         initComponents();
         setLocationRelativeTo(null);
     }
@@ -41,11 +41,11 @@ public class NewJFrameProfesores extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        tbPanelPrincipal = new javax.swing.JTabbedPane();
-        pnDatos = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        txtAreaDatos = new javax.swing.JTextArea();
-        bnDatos = new javax.swing.JButton();
+        tbPanelPrincipal1 = new javax.swing.JTabbedPane();
+        pnDatos1 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        txtAreaDatos1 = new javax.swing.JTextArea();
+        bnDatos1 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         txtIdBorrar = new javax.swing.JTextField();
@@ -54,16 +54,18 @@ public class NewJFrameProfesores extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        txtCédula = new javax.swing.JTextField();
+        txtEstID = new javax.swing.JTextField();
         txtNombre = new javax.swing.JTextField();
         txtApellido = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jTxtID = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jTxtTelefono = new javax.swing.JTextField();
-        jTxtGrad_Aca = new javax.swing.JTextField();
+        jTxtMatID = new javax.swing.JTextField();
+        jTxtNombreMateria = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jTxtFPrecio = new javax.swing.JTextField();
         pnModificar = new javax.swing.JPanel();
         jLblNombre = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -75,40 +77,40 @@ public class NewJFrameProfesores extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        txtAreaDatos.setColumns(20);
-        txtAreaDatos.setRows(5);
-        jScrollPane1.setViewportView(txtAreaDatos);
+        txtAreaDatos1.setColumns(20);
+        txtAreaDatos1.setRows(5);
+        jScrollPane2.setViewportView(txtAreaDatos1);
 
-        bnDatos.setText("Ver Datos");
-        bnDatos.addActionListener(new java.awt.event.ActionListener() {
+        bnDatos1.setText("Ver Datos");
+        bnDatos1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bnDatosActionPerformed(evt);
+                bnDatos1ActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout pnDatosLayout = new javax.swing.GroupLayout(pnDatos);
-        pnDatos.setLayout(pnDatosLayout);
-        pnDatosLayout.setHorizontalGroup(
-            pnDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnDatosLayout.createSequentialGroup()
+        javax.swing.GroupLayout pnDatos1Layout = new javax.swing.GroupLayout(pnDatos1);
+        pnDatos1.setLayout(pnDatos1Layout);
+        pnDatos1Layout.setHorizontalGroup(
+            pnDatos1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnDatos1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(pnDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 369, Short.MAX_VALUE)
-                    .addGroup(pnDatosLayout.createSequentialGroup()
-                        .addComponent(bnDatos)
+                .addGroup(pnDatos1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 384, Short.MAX_VALUE)
+                    .addGroup(pnDatos1Layout.createSequentialGroup()
+                        .addComponent(bnDatos1)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
-        pnDatosLayout.setVerticalGroup(
-            pnDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnDatosLayout.createSequentialGroup()
-                .addComponent(bnDatos)
+        pnDatos1Layout.setVerticalGroup(
+            pnDatos1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnDatos1Layout.createSequentialGroup()
+                .addComponent(bnDatos1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 212, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        tbPanelPrincipal.addTab("DATOS", pnDatos);
+        tbPanelPrincipal1.addTab("DATOS", pnDatos1);
 
         jLabel4.setText("-ID:");
 
@@ -130,7 +132,7 @@ public class NewJFrameProfesores extends javax.swing.JFrame {
                 .addComponent(txtIdBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(bnBorrar)
-                .addContainerGap(207, Short.MAX_VALUE))
+                .addContainerGap(222, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -140,12 +142,12 @@ public class NewJFrameProfesores extends javax.swing.JFrame {
                     .addComponent(jLabel4)
                     .addComponent(txtIdBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bnBorrar))
-                .addContainerGap(216, Short.MAX_VALUE))
+                .addContainerGap(218, Short.MAX_VALUE))
         );
 
-        tbPanelPrincipal.addTab("BORRAR", jPanel1);
+        tbPanelPrincipal1.addTab("BORRAR", jPanel1);
 
-        jLabel1.setText("Cedula");
+        jLabel1.setText("Estudiante ID");
 
         jLabel2.setText("Nombre");
 
@@ -158,11 +160,13 @@ public class NewJFrameProfesores extends javax.swing.JFrame {
             }
         });
 
-        jLabel7.setText("ID");
+        jLabel7.setText("Matricula ID");
 
-        jLabel8.setText("Telefono");
+        jLabel8.setText("Materia ID");
 
-        jLabel9.setText("Grado Aca");
+        jLabel9.setText("Nombre");
+
+        jLabel10.setText("Precio");
 
         javax.swing.GroupLayout pnInsertarLayout = new javax.swing.GroupLayout(pnInsertar);
         pnInsertar.setLayout(pnInsertarLayout);
@@ -171,7 +175,7 @@ public class NewJFrameProfesores extends javax.swing.JFrame {
             .addGroup(pnInsertarLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnInsertarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnInsertarLayout.createSequentialGroup()
                         .addGroup(pnInsertarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -181,16 +185,18 @@ public class NewJFrameProfesores extends javax.swing.JFrame {
                                     .addComponent(jLabel7)
                                     .addComponent(jLabel2)
                                     .addComponent(jLabel8)
-                                    .addComponent(jLabel9))
+                                    .addComponent(jLabel9)
+                                    .addComponent(jLabel10))
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(pnInsertarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTxtTelefono)
-                            .addComponent(txtCédula, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
+                        .addGroup(pnInsertarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTxtMatID)
+                            .addComponent(txtEstID, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
                             .addComponent(txtNombre)
                             .addComponent(txtApellido)
                             .addComponent(jTxtID)
-                            .addComponent(jTxtGrad_Aca))))
+                            .addComponent(jTxtNombreMateria)
+                            .addComponent(jTxtFPrecio))))
                 .addGap(206, 206, 206))
         );
         pnInsertarLayout.setVerticalGroup(
@@ -202,7 +208,7 @@ public class NewJFrameProfesores extends javax.swing.JFrame {
                     .addComponent(jLabel7))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnInsertarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtCédula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtEstID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnInsertarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -214,22 +220,26 @@ public class NewJFrameProfesores extends javax.swing.JFrame {
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnInsertarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTxtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTxtMatID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnInsertarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTxtGrad_Aca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTxtNombreMateria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pnInsertarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(jTxtFPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addContainerGap())
         );
 
-        tbPanelPrincipal.addTab("INSERTAR", pnInsertar);
+        tbPanelPrincipal1.addTab("INSERTAR", pnInsertar);
 
-        jLblNombre.setText("ID");
+        jLblNombre.setText("Matricula ID");
 
-        jLabel6.setText("Nombre");
+        jLabel6.setText("Nombre Estudiante");
 
         bnModificar.setText("MODIFICAR");
         bnModificar.addActionListener(new java.awt.event.ActionListener() {
@@ -238,7 +248,7 @@ public class NewJFrameProfesores extends javax.swing.JFrame {
             }
         });
 
-        jLabel5.setText("Apellido");
+        jLabel5.setText("Apellido Estudiante");
 
         javax.swing.GroupLayout pnModificarLayout = new javax.swing.GroupLayout(pnModificar);
         pnModificar.setLayout(pnModificarLayout);
@@ -250,15 +260,15 @@ public class NewJFrameProfesores extends javax.swing.JFrame {
                     .addComponent(bnModificar)
                     .addGroup(pnModificarLayout.createSequentialGroup()
                         .addGroup(pnModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel6)
-                            .addComponent(jLabel5))
+                            .addComponent(jLabel5)
+                            .addComponent(jLblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(pnModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTxtFApellido2Modificar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtApellido1Modificar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtIDModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(238, Short.MAX_VALUE))
+                .addContainerGap(213, Short.MAX_VALUE))
         );
         pnModificarLayout.setVerticalGroup(
             pnModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -275,12 +285,12 @@ public class NewJFrameProfesores extends javax.swing.JFrame {
                 .addGroup(pnModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(jTxtFApellido2Modificar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 111, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 113, Short.MAX_VALUE)
                 .addComponent(bnModificar)
                 .addGap(33, 33, 33))
         );
 
-        tbPanelPrincipal.addTab("MODIFICAR", pnModificar);
+        tbPanelPrincipal1.addTab("MODIFICAR", pnModificar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -288,42 +298,41 @@ public class NewJFrameProfesores extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(tbPanelPrincipal))
+                .addComponent(tbPanelPrincipal1))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(tbPanelPrincipal)
+                .addComponent(tbPanelPrincipal1)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void bnDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bnDatosActionPerformed
+    private void bnDatos1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bnDatos1ActionPerformed
         // TODO add your handling code here:
 
         //muestra la info de la base de datos
         try {
-            ResultSet datos = this.CP.select("*", "\"public\".Profesor", "");
+            ResultSet datos = this.CP.select("*", "\"public\".matricula", "");
             while (datos.next());
             {
-                this.txtAreaDatos.append("Profesor_id: " + datos.getString(1)
-                    + "Cédula: " + datos.getString(2)
+                this.txtAreaDatos.append("matricula_id: " + datos.getString(1)
+                    + "estudiante_id: " + datos.getString(2)
                     + "Nombre: " + datos.getString(3)
                     + "Apellido: " + datos.getString(4)
-                    + "Telefono: " + datos.getString(5)
-                    + "Grado_Academico: " + datos.getString(6)
+                    + "Materia_id: " + datos.getString(5)
+                    + "Nombre_Materia: " + datos.getString(6)
+                    + "Precio: " + datos.getString(7)
                     + "\n");
             }
         } catch (Exception e) {
             System.err.println("Error: " + e.toString());
         }
-    }//GEN-LAST:event_bnDatosActionPerformed
+    }//GEN-LAST:event_bnDatos1ActionPerformed
 
-    
-    
     private void bnBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bnBorrarActionPerformed
         // TODO add your handling code here:
         // Borra la info de la base de datos
@@ -331,9 +340,9 @@ public class NewJFrameProfesores extends javax.swing.JFrame {
         String estado;
         String datos;
 
-        datos = " where \"profesor_id\" = '" + this.txtIdBorrar.getText() + "'";
+        datos = " where \"matricula_id\" = '" + this.txtIdBorrar.getText() + "'";
 
-        estado = this.CP.Borrar("\"public\".Profesor", datos);
+        estado = this.CP.Borrar("\"public\".matricula", datos);
 
         System.out.println(estado);
     }//GEN-LAST:event_bnBorrarActionPerformed
@@ -344,14 +353,15 @@ public class NewJFrameProfesores extends javax.swing.JFrame {
         String datos = "";
 
         datos = "('" + this.jTxtID.getText()
-        + "' , '" + this.txtCédula.getText()
+        + "' , '" + this.txtEstID.getText()
         + "' , '" + this.txtNombre.getText()
         + "' , '" + this.txtApellido.getText()
-        + "' , '" + this.jTxtTelefono.getText()
-        + "' , '" + this.jTxtGrad_Aca.getText()
+        + "' , '" + this.jTxtMatID.getText()
+        + "' , '" + this.jTxtNombreMateria.getText()
+        + "' , '" + parseInt(this.jTxtFPrecio.getText())
         + "')";
 
-        this.CP.insertar("\"public\".Profesor", datos);
+        this.CP.insertar("\"public\".matricula", datos);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void bnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bnModificarActionPerformed
@@ -363,10 +373,10 @@ public class NewJFrameProfesores extends javax.swing.JFrame {
 
         datos = "set \"nombre\" = '"
         + this.txtApellido1Modificar.getText()
-        + "' where \"profesor_id\" = '"
+        + "' where \"matricula_id\" = '"
         + parseString(this.txtIDModificar.getText()) + "'";
 
-        estado = this.CP.Modificar("\"public\".Profesor", datos);
+        estado = this.CP.Modificar("\"public\".matricula", datos);
         System.out.println(estado);
     }//GEN-LAST:event_bnModificarActionPerformed
 
@@ -387,13 +397,13 @@ public class NewJFrameProfesores extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(NewJFrameProfesores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NewJFrameMatricula.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(NewJFrameProfesores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NewJFrameMatricula.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(NewJFrameProfesores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NewJFrameMatricula.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(NewJFrameProfesores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NewJFrameMatricula.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -401,11 +411,11 @@ public class NewJFrameProfesores extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    new NewJFrameProfesores().setVisible(true);
+                    new NewJFrameMatricula().setVisible(true);
                 } catch (ClassNotFoundException ex) {
-                    Logger.getLogger(NewJFrameProfesores.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(NewJFrameMatricula.class.getName()).log(Level.SEVERE, null, ex);
                 } catch (SQLException ex) {
-                    Logger.getLogger(NewJFrameProfesores.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(NewJFrameMatricula.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         });
@@ -414,9 +424,11 @@ public class NewJFrameProfesores extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bnBorrar;
     private javax.swing.JButton bnDatos;
+    private javax.swing.JButton bnDatos1;
     private javax.swing.JButton bnModificar;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -428,18 +440,23 @@ public class NewJFrameProfesores extends javax.swing.JFrame {
     private javax.swing.JLabel jLblNombre;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField jTxtFApellido2Modificar;
-    private javax.swing.JTextField jTxtGrad_Aca;
+    private javax.swing.JTextField jTxtFPrecio;
     private javax.swing.JTextField jTxtID;
-    private javax.swing.JTextField jTxtTelefono;
+    private javax.swing.JTextField jTxtMatID;
+    private javax.swing.JTextField jTxtNombreMateria;
     private javax.swing.JPanel pnDatos;
+    private javax.swing.JPanel pnDatos1;
     private javax.swing.JPanel pnInsertar;
     private javax.swing.JPanel pnModificar;
     private javax.swing.JTabbedPane tbPanelPrincipal;
+    private javax.swing.JTabbedPane tbPanelPrincipal1;
     private javax.swing.JTextField txtApellido;
     private javax.swing.JTextField txtApellido1Modificar;
     private javax.swing.JTextArea txtAreaDatos;
-    private javax.swing.JTextField txtCédula;
+    private javax.swing.JTextArea txtAreaDatos1;
+    private javax.swing.JTextField txtEstID;
     private javax.swing.JTextField txtIDModificar;
     private javax.swing.JTextField txtIdBorrar;
     private javax.swing.JTextField txtNombre;
