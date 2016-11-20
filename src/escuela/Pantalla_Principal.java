@@ -23,9 +23,15 @@ import java.util.logging.Logger;
 public class Pantalla_Principal extends javax.swing.JFrame {
 
 //.conexión_postgres CP;
+<<<<<<< HEAD
     public Pantalla_Principal() {
 
         initComponents();
+=======
+    public Pantalla_Principal(){
+    
+        initComponents();//Constructor Clase Pantalla_Principal.
+>>>>>>> origin/master
         setLocationRelativeTo(null);
     }
 

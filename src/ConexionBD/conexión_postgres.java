@@ -14,18 +14,18 @@ import java.sql.SQLException;
  */
 public class conexión_postgres {
 
-    private Connection conn; //Se Crea Variable "Conexión" con Base de Datos
+    private Connection conn; //Se Crea Variable "Conexión" para enlazar Base de Datos
 
-    //Se Crea el Método Constructor
+    //Se Crea el Método Constructor respectivo
     public conexión_postgres(String pNombreDB, String pUser, String dPassword) throws ClassNotFoundException, SQLException {
         try {
-            String driver = "org.postgresql.Driver"; //Se Asigna el Driver de "Conexión" con Base de Datos
+            String driver = "org.postgresql.Driver"; //Se Asigna el Driver de "Conexión" con la Base de Datos
             Class.forName(driver);
             String connString = "jdbc:postgresql://localhost:5432/" + pNombreDB; //String de Conexión
-            String user = pUser; //Usuario de PostGreSQL 9.2
-            String password = dPassword; //Constraseña de Usuario del PostGreS
+            String user = pUser; //Usuario de PostGreSQL 9.6
+            String password = dPassword; //Constraseña de Usuario del Postgres
 
-            this.conn = DriverManager.getConnection(connString, user, password); //Se Realiza la Conexión
+            this.conn = DriverManager.getConnection(connString, user, password); //Conexión Realizada
             System.out.println("Conexión Realizada con Éxito");
         } catch (SQLException e) {
             System.err.println(e.toString());
@@ -33,13 +33,13 @@ public class conexión_postgres {
     }
 
     public conexión_postgres() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("Not supported yet."); //Pra cambiar el cuerpo de los metodos generados, entrar en Tools | Templates.
     }
 
     public ResultSet select(String pCampos, String pTabla, String pCondición) {
 
-        ResultSet rs = null; //Obtener los Datos del Select
-        Statement s = null; //Se Utiliza para Inicializar la Conexión
+        ResultSet rs = null; //Para Obtener los Datos del Select
+        Statement s = null; //Para Inicializar la Conexión
         String sentencia = "";
         try {
             s = this.conn.createStatement(); //Se Inicializa la Conexión
