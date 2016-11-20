@@ -5,6 +5,7 @@
  */
 package escuela;//Parte grafica Estudiante
 
+import Especialidad.NewJFrameEspecialidad;
 import Estudiante.Estudiante;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -34,6 +35,7 @@ public class Pantalla_Principal extends javax.swing.JFrame {
 
         jBtnSalir = new javax.swing.JButton();
         jBtnEstudiante = new javax.swing.JButton();
+        jBtnEspecialidad = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -52,6 +54,13 @@ public class Pantalla_Principal extends javax.swing.JFrame {
         jBtnEstudiante.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBtnEstudianteActionPerformed(evt);
+            }
+        });
+
+        jBtnEspecialidad.setText("Especialidad");
+        jBtnEspecialidad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnEspecialidadActionPerformed(evt);
             }
         });
 
@@ -76,21 +85,27 @@ public class Pantalla_Principal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jBtnSalir)
-                .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jBtnEstudiante)
-                .addContainerGap(307, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jBtnSalir))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jBtnEstudiante, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jBtnEspecialidad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 289, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addComponent(jBtnEstudiante)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 201, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jBtnEspecialidad)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 160, Short.MAX_VALUE)
                 .addComponent(jBtnSalir)
                 .addContainerGap())
         );
@@ -122,6 +137,19 @@ public class Pantalla_Principal extends javax.swing.JFrame {
                     
                 
     }//GEN-LAST:event_jBtnEstudianteActionPerformed
+
+    private void jBtnEspecialidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnEspecialidadActionPerformed
+        // TODO add your handling code here:
+            NewJFrameEspecialidad E = null;
+        try {
+            E = new NewJFrameEspecialidad();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Pantalla_Principal.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(Pantalla_Principal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            E.setVisible (true);
+    }//GEN-LAST:event_jBtnEspecialidadActionPerformed
 
     /**
      * @param args the command line arguments
@@ -159,6 +187,7 @@ public class Pantalla_Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBtnEspecialidad;
     private javax.swing.JButton jBtnEstudiante;
     private javax.swing.JButton jBtnSalir;
     private javax.swing.JMenu jMenu1;
